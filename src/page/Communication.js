@@ -26,11 +26,9 @@ const Communication = () => {
                     <li><a href=''>소통방</a></li>
                     <li><a href=''>육아팁</a></li>
                     <li><a href=''>다이어리</a></li>
-                    <a href='#' className='navbar_toggleBtn' onClick={toggleMenu}>
-                        <li><img src={profile}/></li>
-                    </a>
+                    <li><img src={profile}/></li>
                 </ul>
-                <a href='#' className='navbar_toggleBtn'>
+                <a href='#' className='navbar_toggleBtn' onClick={toggleMenu}>
                     <FontAwesomeIcon icon={faBars} />
                 </a>
             </nav>

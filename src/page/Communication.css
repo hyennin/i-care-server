@@ -66,12 +66,6 @@ button{
     box-shadow: 5px 5px 5px rgb(145, 145, 145);
     color: #F6D697;
 }
-@media screen and (max-width: 1023px) {
-       .navbar_menu {
-            margin-left: 300px;
-       }
-       
-}
 @media screen and (max-width: 768px) {
     .navbar {
         flex-direction: column;
