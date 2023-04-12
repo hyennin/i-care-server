@@ -11,7 +11,7 @@ a {
     justify-content: space-between;
     align-items: center;
     background-color: #F6D697;
-    padding: 8px 12px;
+    padding: 8px 30px;
 }
 img{
     width: 60px;
@@ -24,7 +24,6 @@ img{
     color: white;
     font-size: 30px;
     font-weight: bold;
-    margin-left: 30px;
 }
 .navbar_menu li:hover{
     background-color: #FDF3D1;
@@ -36,11 +35,13 @@ img{
 }
 .navbar_menu {
     display: flex;
+    justify-content: center;
+    align-items: center;
     list-style: none;
     padding-left: 0;
     font-weight: bold;
     font-size: 20px;
-    padding-right: 500px;
+    white-space:nowrap;
 }
 .navbar_menu li{
     padding: 8px 12px;
@@ -52,7 +53,25 @@ img{
     font-size: 24px;
     color: white;
 }
-
+button{
+    width: 100px;
+    margin: auto;
+    display: block;
+    margin-top: 100px;
+    width: 500px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: #FFF9E3;
+    border: none;
+    box-shadow: 5px 5px 5px rgb(145, 145, 145);
+    color: #F6D697;
+}
+@media screen and (max-width: 1023px) {
+       .navbar_menu {
+            margin-left: 300px;
+       }
+       
+}
 @media screen and (max-width: 768px) {
     .navbar {
         flex-direction: column;

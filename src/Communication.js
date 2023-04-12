@@ -1,10 +1,12 @@
 import './Communication.css';
+import {Route} from 'react-router-dom';
 import mom from './mom.png'
 import baby from './baby.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from 'react';
 import styled from 'styled-components';
+
 
 const Communication = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,6 +32,10 @@ const Communication = () => {
                     <FontAwesomeIcon icon={faBars} />
                 </a>
             </nav>
+
+            <body>
+                <button>당신의 이야기를 들려주세요</button>
+            </body>
         </div>
     );
 };
