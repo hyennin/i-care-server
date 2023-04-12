@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import Communication from './Communication';
+import Communication from './page/Communication';
 
 function App() {
   return (
