@@ -4,7 +4,7 @@ import Communication from './page/Communication';
 
 function App() {
   return (
-   <Communication/>
+   <Login/>
   );
 }
 

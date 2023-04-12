@@ -10,7 +10,7 @@ const Login = () => {
                 <PwInput type='password' placeholder='비밀번호를 입력해주세요' />
                 <Button>Login</Button>
             </Form>
-            <Text>아이디가 없으신가요?<SignUpBtn>Sign Up</SignUpBtn></Text>
+            <Text>아이디가 없으신가요?  <SignUpBtn href="/signup">Sign Up</SignUpBtn></Text>
         </Container>
     );
 }
@@ -79,10 +79,13 @@ const Button = styled.button`
 `;
 
 const Text = styled.div`
+    margin-top: 10px;
+    white-space: pre-wrap;
     color: #BDA470;
 `;
 
-const SignUpBtn = styled.button`
+const SignUpBtn = styled.a`
+    font-size: 24px;
     color: #F6D697;
 `;
 
