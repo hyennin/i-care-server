@@ -1,14 +1,21 @@
 import React from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import styled from "styled-components";
 
 const Login = () => {
+    const history = useHistory();
+
+    const handler = () => {
+        history.push('/community');
+    }
+
     return (
         <Container>
             <Title>Login</Title>
             <Form>
                 <IdInput type='email' placeholder='이메일을 입력해주세요' />
                 <PwInput type='password' placeholder='비밀번호를 입력해주세요' />
-                <Button>Login</Button>
+                <Button onClick={handler}>Login</Button>
             </Form>
             <Text>아이디가 없으신가요?  <SignUpBtn href="/signup">Sign Up</SignUpBtn></Text>
         </Container>
@@ -42,6 +49,7 @@ const Form = styled.form`
 const IdInput = styled.input`
     width: 400px;
     margin-top: 110px;
+    padding: 10px;
     font-size: 20px;
     background-color: #FDF3D1;
     border: 0;
@@ -56,6 +64,7 @@ const IdInput = styled.input`
 const PwInput = styled.input`
     width: 400px;
     margin-top: 70px;
+    padding: 10px;
     font-size: 20px;
     background-color: #FDF3D1;
     border: 0;
