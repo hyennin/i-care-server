@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const CommmunityList = () => {
+const CommunityList = () => {
 
     return (
         <>
@@ -27,4 +27,4 @@ const Button = styled.a`
     color: #F6D697;
 `;
 
-export default CommmunityList;
+export default CommunityList;
