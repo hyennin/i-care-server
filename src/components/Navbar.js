@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import logo from '../img/logo.png'
 import profile from '../img/profile.png';
+import Group from '../img/Group.png';
 import React, { useState } from 'react';
 
 
@@ -23,7 +24,7 @@ const Navbar = () => {
             </a>
         </div>
         <ul className={`navbar_menu ${isMenuOpen ? 'active' : ''}`}>
-            <li><a href=''>소통방</a></li>
+            <li><a href='/community'>소통방</a></li>
             <li><a href=''>육아팁</a></li>
             <li><a href=''>다이어리</a></li>
             <li><img className='profile' src={profile}/></li>

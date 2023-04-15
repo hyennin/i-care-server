@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './Writing.css';
-import Group2 from '../img/Group2.png';
+import Group2 from '../../img/Group2.png';
 const CommunityPosting = () => {
 
     return(
