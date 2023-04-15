@@ -1,10 +1,28 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import { useState } from 'react';
+import './Writing.css';
+import Group2 from '../img/Group2.png';
+const CommunityPosting = () => {
 
-const CommmunityPosting = () => {
-    return (
-        <h1>소통 글 작성 페이지입니다.</h1>
-    );
+    return(
+        <div>
+            <table border={1}>
+                <thead>
+                    <tr>
+                    <th></th>
+                    <button className='group2'><img src={Group2}/></button>
+                    </tr>
+                </thead>
+            </table>
+                <thead>
+                <textarea className='text' placeholder="내용을 입력하세요."></textarea>
+                </thead>
+                <button className='up'>올리기</button>
+            
+
+           
+        </div>
+    )
 }
 
-export default CommmunityPosting;
+export default CommunityPosting;
