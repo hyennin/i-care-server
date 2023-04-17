@@ -1,17 +1,44 @@
-import React from "react";
+import './Communication.css';
+import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import heart from '../../img/heart.png';
+import communi from '../../img/communi.png';
+import pink_heart from '../../img/pink_heart.png';
 import styled from "styled-components";
 
+
 const CommunityList = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isClick, setIsClick] = useState(false);
 
+   
+
+    const click_heart = () => {
+        setIsClick(!isClick);
+    }
+
+   
     return (
-        <>
+        <div>
+
+            <body>
+            <>
             <Button href="/community/posting">당신의 이야기를 들려주세요</Button>
-            <h1>소통 글 목록 페이지입니다.</h1>
-        </>
+            </>
+
+                <div className='communi-box'>
+                    산후 우울증에 대해...
+                               
+
+                <img src={isClick? pink_heart: heart} alt='img' onClick={click_heart} className='heart'/>
+                    
+                    <img className='communi' src={communi} alt="communi"/>
+                    
+                </div>
+            </body>
+        </div>
     );
-}
-
-
+};
 const Button = styled.a`
     width: 100px;
     margin: auto;
@@ -26,5 +53,4 @@ const Button = styled.a`
     box-shadow: 5px 5px 5px rgb(145, 145, 145);
     color: #F6D697;
 `;
-
 export default CommunityList;
