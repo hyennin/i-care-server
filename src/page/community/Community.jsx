@@ -5,7 +5,7 @@ import CommunityList from './CommunityList';
 import CommunityPost from './CommunityPost';
 import CommunityPosting from './CommunityPosting';
 
-const Commmunity = ({match}) => {
+const Community = ({match}) => {
     return (
         <Router>
             <Navbar/>
@@ -18,4 +18,4 @@ const Commmunity = ({match}) => {
     );
 };
 
-export default Commmunity;
+export default Community;
