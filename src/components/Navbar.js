@@ -25,7 +25,7 @@ const Navbar = () => {
         </div>
         <ul className={`navbar_menu ${isMenuOpen ? 'active' : ''}`}>
             <li><a href='/community'>소통방</a></li>
-            <li><a href=''>육아팁</a></li>
+            <li><a href='/Tip'>육아팁</a></li>
             <li><a href=''>다이어리</a></li>
             <li><img className='profile' src={profile}/></li>
         </ul>
