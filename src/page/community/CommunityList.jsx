@@ -1,11 +1,9 @@
 import './Communication.css';
-import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import heart from '../../img/heart.png';
 import communi from '../../img/communi.png';
 import pink_heart from '../../img/pink_heart.png';
 import styled from "styled-components";
-
 
 const CommunityList = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,6 +37,7 @@ const CommunityList = () => {
         </div>
     );
 };
+
 const Button = styled.a`
     width: 100px;
     margin: auto;
@@ -53,4 +52,5 @@ const Button = styled.a`
     box-shadow: 5px 5px 5px rgb(145, 145, 145);
     color: #F6D697;
 `;
+
 export default CommunityList;
