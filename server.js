@@ -1,5 +1,6 @@
-const express = require('express')
-const session = require('express-session')
+const express = require('express');
+const routes = require('./routes');
+const session = require('express-session');
 const path = require('path');
 const app = express();
 const port = 3001;
@@ -15,17 +16,15 @@ app.use(bodyParser.json());
 
 var MySQLStore = require('express-mysql-session')(session);
 var sessionStore = new MySQLStore(sessionOption);
-app.use(session({  
-	key: 'session_cookie_name',
+app.use(session({
+    key: 'session_cookie_name',
     secret: '~',
 	store: sessionStore,
 	resave: false,
 	saveUninitialized: false
 }))
 
-app.get('/', (req, res) => {    
-    res.sendFile(path.join(__dirname, '/build/index.html'));
-})
+app.use(routes);
 
 app.get('/authcheck', (req, res) => {      
     const sendData = { isLogin: "" };
