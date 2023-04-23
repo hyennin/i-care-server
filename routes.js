@@ -4,59 +4,74 @@ const path = require('path');
 const router = express.Router();
 
 // jsx file
-const my_page = path.resolve(__dirname, './src/page/MyPage');
-const co_list = path.resolve(__dirname, './src/page/community/CommunityList');
-const co_post = path.resolve(__dirname, './src/page/community/CommunityPost');
-const co_posting = path.resolve(__dirname, './src/page/community/CommunityPosting');
-const di_list = path.resolve(__dirname, './src/page/diary/DiaryList');
-const di_post = path.resolve(__dirname, './src/page/diary/DiaryPost');
-const di_posting = path.resolve(__dirname, './src/page/diary/DiaryPosting');
-const ti_list = path.resolve(__dirname, './src/page/tip/TipList');
-const ti_post = path.resolve(__dirname, './src/page/tip/TipPost');
-const ti_posting = path.resolve(__dirname, './src/page/tip/TipPosting');
+const index = path.join(__dirname, './build/index.html')
 
 router.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, './build/index.html'));
+	res.sendFile(index);
+});
+
+router.get('/authcheck', (req, res) => {
+	const sendData = { isLogin: "" };
+    if (req.session.is_logined) {
+        sendData.isLogin = "True"
+    } else {
+        sendData.isLogin = "False"
+    }
+    res.send(sendData);
+});
+
+router.get('/logout', (req, res) => {
+    req.session.destroy(function (err) {
+        res.redirect('/');
+    });
 });
 
 router.get('/community', (req, res) => {
-	res.sendFile(co_list);
+	res.sendFile(index);
 });
 
 router.get('/community/post', (req, res) => {
-	res.sendFile(co_post);
+	res.sendFile(index);
 });
 
 router.get('/community/posting', (req, res) => {
-	res.sendFile(co_posting);
+	res.sendFile(index);
 });
 
 router.get('/diary', (req, res) => {
-	res.sendFile(di_list);
+	res.sendFile(index);
 });
 
 router.get('/diary/post', (req, res) => {
-	res.sendFile(di_post);
+	res.sendFile(index);
 });
 
 router.get('/diary/posting', (req, res) => {
-	res.sendFile(di_posting);
+	res.sendFile(index);
 });
 
 router.get('/tip', (req, res) => {
-	res.sendFile(ti_list);
+	res.sendFile(index);
 });
 
 router.get('/tip/post', (req, res) => {
-	res.sendFile(ti_post);
+	res.sendFile(index);
 });
 
 router.get('/tip/posting', (req, res) => {
-	res.sendFile(ti_posting);
+	res.sendFile(index);
+});
+
+router.get('/login', (req, res) => {
+	res.sendFile(index);
+});
+
+router.get('/signup', (req, res) => {
+	res.sendFile(index);
 });
 
 router.get('/mypage', (req, res) => {
-	res.sendFile(my_page);
+	res.sendFile(index);
 });
 
 router.get('*', (req, res) => {
