@@ -30,7 +30,11 @@ function App() {
         }
   }, [mode]); 
 
-  return {content};
+  return (
+    <>
+      {content}
+    </>
+  );
 }
 
 export default App;

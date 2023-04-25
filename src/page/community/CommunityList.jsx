@@ -1,5 +1,6 @@
 import './Communication.css';
 import React, { useState } from 'react';
+import Navbar from '../../components/Navbar.js'
 import heart from '../../img/heart.png';
 import communi from '../../img/communi.png';
 import pink_heart from '../../img/pink_heart.png';
@@ -18,7 +19,7 @@ const CommunityList = () => {
    
     return (
         <div>
-
+            <Navbar />
             <body>
             <>
             <Button href="/community/posting">당신의 이야기를 들려주세요</Button>
