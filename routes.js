@@ -10,15 +10,14 @@ if (process.env.NODE_ENV === 'production') {
 	router.get('*', (req, res) => {
 	  res.sendFile(index);
 	});
+} else {
+    console.log("프로덕션 환경이 아님");
 }
 
 router.get('/authcheck', (req, res) => {
 	const sendData = { isLogin: "" };
-    if (req.session.is_logined) {
-        sendData.isLogin = "True"
-    } else {
-        sendData.isLogin = "False"
-    }
+    if (req.session.is_logined) sendData.isLogin = "True"
+    else sendData.isLogin = "False"
     res.send(sendData);
 });
 
