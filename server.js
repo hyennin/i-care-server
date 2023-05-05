@@ -41,26 +41,23 @@ app.post("/login", (req, res) => { // 데이터 받아서 결과 전송
                     if (result === true) {                  // 비밀번호가 일치하면
                         req.session.is_logined = true;      // 세션 정보 갱신
                         req.session.email = email;
-                        sendData.isLogin = true
+                        sendData.isLogin = true;
                         res.send(sendData);
                         db.query(`INSERT INTO logTable (created, email, action, command, actiondetail) VALUES (NOW(), ?, 'login' , ?, ?)`
                             , [req.session.email, '-', `React 로그인 테스트`], function (error, result) { });
                     }
                     else{                                   // 비밀번호가 다른 경우
-                        sendData.isLogin = false;
-                        sendData.message = "로그인 정보가 일치하지 않습니다."
+                        sendData.message = "로그인 정보가 일치하지 않습니다.";
                         res.send(sendData);
                     }
                 });                
             } else {    // db에 해당 아이디가 없는 경우
-                sendData.isLogin = false;
-                sendData.message = "아이디 정보가 일치하지 않습니다."
+                sendData.message = "아이디 정보가 일치하지 않습니다.";
                 res.send(sendData);
             }
         });
     } else {            // 아이디, 비밀번호 중 입력되지 않은 값이 있는 경우
-        sendData.isLogin = false;
-        sendData.message = "아이디와 비밀번호를 입력하세요!"
+        sendData.message = "아이디와 비밀번호를 입력하세요!";
         res.send(sendData);
     }
 });
@@ -70,7 +67,7 @@ app.post("/signup", (req, res) => {  // 데이터 받아서 결과 전송
     const email = req.body.userId;
     const password = req.body.userPassword;
     const password2 = req.body.userPassword2; 
-    const sendData = { isSuccess: false };
+    const sendData = { isSuccess: false, message: "" };
 
     if (username && email && password && password2) {
         db.query('SELECT * FROM userTable WHERE username = ? AND email = ?', [username, email], function(error, results, fields) { // DB에 같은 이름의 회원아이디가 있는지 확인
@@ -78,25 +75,25 @@ app.post("/signup", (req, res) => {  // 데이터 받아서 결과 전송
             if (results.length <= 0 && password === password2) {         // DB에 같은 이름의 회원아이디가 없고, 비밀번호가 올바르게 입력된 경우
                 const hashedPassword = bcrypt.hashSync(password, 10);    // 입력된 비밀번호를 해시한 값
                 db.query('INSERT INTO userTable (username, email, password) VALUES(?,?,?)', [username, email, hashedPassword], function (error, data) {
-                    if (error) throw error;                  
-                    sendData.isSuccess = true
+                    if (error) throw error;                     
+                    sendData.isSuccess = true;
                     res.send(sendData);
                 });
             } else if (password !== password2) {                     // 비밀번호가 올바르게 입력되지 않은 경우                  
-                sendData.message = "입력된 비밀번호가 서로 다릅니다."
+                sendData.message = "입력된 비밀번호가 서로 다릅니다.";
                 res.send(sendData);
             }
             else {                                                  // DB에 같은 이름의 회원아이디가 있는 경우            
-                sendData.message = "이미 존재하는 아이디 입니다!"
+                sendData.message = "이미 존재하는 아이디 입니다!";
                 res.send(sendData);  
             }            
         });
     } else {
-        sendData.message = "아이디와 비밀번호를 입력하세요!"
+        sendData.message = "아이디와 비밀번호를 입력하세요!";
         res.send(sendData);
     }
 });
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`Example app listening at http://localhost:${port}`);
 });
