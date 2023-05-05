@@ -15,9 +15,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 router.get('/authcheck', (req, res) => {
-	const sendData = { isLogin: "" };
-    if (req.session.is_logined) sendData.isLogin = "True"
-    else sendData.isLogin = "False"
+	const sendData = { isLogin: false };
+    if (req.session.is_logined) sendData.isLogin = true
     res.send(sendData);
 });
 
